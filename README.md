@@ -20,10 +20,10 @@ has_many :orders
 ## itemsテーブル
 
 | Column            | Type       | Options                       |
-| item_title        | string     | null false                    |
-| item_description  | text       | null false                    |
+| title             | string     | null false                    |
+| description       | text       | null false                    |
 | category_id       | integer    | null false                    |
-| item_status_id    | integer    | null false                    |
+| status_id         | integer    | null false                    |
 | shipping_cost_id  | integer    | null false                    |
 | shipment_score_id | integer    | null false                    |
 | shipping_days_id  | integer    | null false                    |
@@ -33,7 +33,7 @@ has_many :orders
 ### Association
 
 belongs_to :user
-belongs_to :order
+has_one :order
 
 ## ordersテーブル
 
@@ -44,17 +44,19 @@ belongs_to :order
 ### Association
 
 belongs_to :user
+belongs_to :item
 has_one :address
 
 ## addressテーブル
 
-| Column        | Type    | Options    |
-| zip_number    | string  | null false |
-| ken_id        | integer | null false |
-| city_name     | string  | null false |
-| block_name    | string  | null false |
-| building_name | string  | null false |
-| phone_number  | integer | null false |
+| Column        | Type       | Options                      |
+| zip_number    | string     | null false                   |
+| ken_id        | integer    | null false                   |
+| city_name     | string     | null false                   |
+| block_name    | string     | null false                   |
+| building_name | string     |                              |
+| phone_number  | string     | null false                   |
+| order         | references | null false,foreign_key: true |
 
 ### Association
 
