@@ -3,6 +3,7 @@
 ## usersテーブル
 
 | Column          | Type   | Options    |
+| --------------- | ------ | ---------- |
 | nickname        | string | null false |
 | email           | string | null false |
 | password        | string | null false |
@@ -20,6 +21,7 @@ has_many :orders
 ## itemsテーブル
 
 | Column            | Type       | Options                       |
+| ----------------- | ---------- | ----------------------------- |
 | title             | string     | null false                    |
 | description       | text       | null false                    |
 | category_id       | integer    | null false                    |
@@ -38,6 +40,7 @@ has_one :order
 ## ordersテーブル
 
 | Column | Type       | Options                     |
+| ------ | ---------- | --------------------------- |
 | user   | references | null false,foreign_key:true |
 | item   | references | null false,foreign_key:true |
 
@@ -50,6 +53,7 @@ has_one :address
 ## addressテーブル
 
 | Column        | Type       | Options                      |
+| ------------- | ---------- | ---------------------------- |
 | zip_number    | string     | null false                   |
 | ken_id        | integer    | null false                   |
 | city_name     | string     | null false                   |
