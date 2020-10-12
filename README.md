@@ -28,7 +28,7 @@ has_many :orders
 | status_id         | integer    | null false                    |
 | shipping_cost_id  | integer    | null false                    |
 | shipment_score_id | integer    | null false                    |
-| shipping_days_id  | integer    | null false                    |
+| shipping_day_id  | integer    | null false                    |
 | price             | integer    | null false                    |
 | user              | references | null false, foreign_key: true |
 
