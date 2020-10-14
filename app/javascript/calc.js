@@ -1,5 +1,5 @@
 function calc(){
-  if (document.URL.match(/items/) && document.URL.match(/new/) ) {
+  if (document.URL.match(/items/) || document.URL.match(/new/) ) {
     const price = document.getElementById("item-price")
     const tax = document.getElementById("add-tax-price")
     const profit = document.getElementById("profit")
