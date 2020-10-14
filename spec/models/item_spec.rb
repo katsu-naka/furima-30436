@@ -81,6 +81,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
+      it "カテゴリー選択でid:1が選択されている場合は登録できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Select")
+      end
+      it "商品状態選択でid:1が選択されている場合は登録できない" do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status Select")
+      end
+      it "配送料負担選択でid:1が選択されている場合は登録できない" do
+        @item.shipping_cost_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping cost Select")
+      end
+      it "発送元選択でid:1が選択されている場合は登録できない" do
+        @item.shipment_score_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipment score Select")
+      end
+      it "発送日数選択でid:1が選択されている場合は登録できない" do
+        @item.shipping_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day Select")
+      end
       it "userと紐づいていないと保存できない" do
         @item.user = nil
         @item.valid?
