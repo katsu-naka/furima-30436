@@ -1,12 +1,13 @@
 class BuyItem
 
   include ActiveModel::Model
-  attr_accessor  :user_id, :item_id, :zip_number, :ken_id, :city_name, :block_name, :building_name, :phone_number
+  attr_accessor  :user_id, :item_id, :zip_number, :ken_id, :city_name, :block_name, :building_name, :phone_number, :token
 
-  # 以下にバリデーション記述
+  ZIP_NUMBER_REGEX = /\A\d{3}[-]\d{4}\z/.freeze
+
   with_options presence: true do
-    validates :zip_number
-    validates :ken_id
+    validates :zip_number, format: {with: ZIP_NUMBER_REGEX, message: "Input correctly" }
+    validates :ken_id 
     validates :city_name
     validates :block_name
     validates :phone_number
