@@ -4,7 +4,6 @@ const pay = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     
-    //フォーム情報の取得
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
 
@@ -15,7 +14,6 @@ const pay = () => {
       exp_year: `20${formData.get("buy_item[exp_year]")}`,
     };
 
-    //カード情報のトークン化
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
@@ -30,7 +28,6 @@ const pay = () => {
       document.getElementById("card-exp-year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
-
     });
   });
 };
