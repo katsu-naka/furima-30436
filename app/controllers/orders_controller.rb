@@ -22,11 +22,11 @@ class OrdersController < ApplicationController
   private
 
   def buy_params
-    params.require(:buy_item).permit(:zip_number, :ken_id, :city_name, :block_name, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id] ,token: params[:token])
+    params.require(:buy_item).permit(:zip_number, :ken_id, :city_name, :block_name, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: buy_params[:token],
@@ -39,14 +39,10 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root_path
-    if @item.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user_id == current_user.id
   end
 
   def sold_out_move_root
-    if @item.order
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.order
   end
 end

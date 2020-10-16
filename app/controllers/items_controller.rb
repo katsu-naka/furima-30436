@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :sold_out_move_root, only: :edit
 
   def index
-    @items = Item.includes(:user).order("created_at DESC")
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
   def edit
     if @item.user == current_user
-      render "edit"
+      render 'edit'
     else
       redirect_to action: :index
     end
@@ -60,14 +60,10 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 
   def sold_out_move_root
-    if @item.order 
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.order
   end
 end
