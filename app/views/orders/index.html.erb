@@ -14,9 +14,9 @@
         </h2>
         <div class='buy-item-price'>
           <p class='item-price-text'>¥<%= @item.price %></p>
-          <% unless @item.shipping_cost_id == 2%>
-          <p class='item-price-sub-text'>（税込）送料込み</p>
-          <% end %>
+          <p class='item-price-sub-text'>（税込）
+            <% if @item.shipping_cost_id != 2%>送料込み<% end %>
+          </p>
         </div>
       </div>
     </div>
