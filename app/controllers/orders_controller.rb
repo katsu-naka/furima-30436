@@ -1,19 +1,21 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: :index
+  before_action :set_buy_item, only: [:index, :create]
+  before_action :move_to_root_path, only: :index
+  before_action :sold_out_move_root, only: :index
 
   def index
-    @item = Item.find(params[:item_id])
     @buy_item = BuyItem.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buy_item = BuyItem.new(buy_params)
     if @buy_item.valid?
       pay_item
       @buy_item.save
-      redirect_to root_path #仮のパス
-    # else
-    #   render root_path
+      redirect_to root_path
+    else
+      render action: :index
     end
   end
 
@@ -32,4 +34,19 @@ class OrdersController < ApplicationController
     )
   end
 
+  def set_buy_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_root_path
+    if @item.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def sold_out_move_root
+    if @item.order
+      redirect_to root_path
+    end
+  end
 end
