@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
+  has_one :order
   has_one_attached :image
   belongs_to_active_hash :category
   belongs_to_active_hash :status
@@ -21,10 +22,10 @@ class Item < ApplicationRecord
     validates :shipping_day
     validates :price
   end
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range"}
-  validates :price, numericality: { with: PRICE_REGEX, message: "Half-width number"}
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+  validates :price, numericality: { with: PRICE_REGEX, message: 'Half-width number' }
 
-  with_options numericality: { other_than: 1 , message: "Select"} do
+  with_options numericality: { other_than: 1, message: 'Select' } do
     validates :category_id
     validates :status_id
     validates :shipping_cost_id

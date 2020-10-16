@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :category do
+  factory :ken do
   end
 end
