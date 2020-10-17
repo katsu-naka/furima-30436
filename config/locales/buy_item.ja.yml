@@ -1,0 +1,10 @@
+ja:
+  activemodel:
+    attributes:
+      buy_item:
+        zip_number: 郵便番号
+        city_name: 市区町村
+        block_name: 番地
+        ken_id: 都道府県
+        phone_number: 電話番号
+        token: カード情報
