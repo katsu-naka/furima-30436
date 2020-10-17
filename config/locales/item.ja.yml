@@ -6,4 +6,10 @@ ja:
         title: 商品名
         description: 商品説明
         price: 金額
+        category_id: カテゴリー
+        status_id: 商品状態
+        shipping_cost_id: 配送料負担
+        shipment_score_id: 発送元地域
+        shipping_day_id: 発送日数
+
 
