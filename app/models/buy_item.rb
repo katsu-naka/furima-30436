@@ -6,14 +6,14 @@ class BuyItem
   PHONE_NUMBER_REGEX = /\A\d{11}\z/.freeze
 
   with_options presence: true do
-    validates :zip_number, format: { with: ZIP_NUMBER_REGEX, message: 'Input correctly' }
+    validates :zip_number, format: { with: ZIP_NUMBER_REGEX, message: 'はハイフンありで入力してください' }
     validates :ken_id
     validates :city_name
     validates :block_name
-    validates :phone_number, format: { with: PHONE_NUMBER_REGEX, message: 'Input only number' }
+    validates :phone_number, format: { with: PHONE_NUMBER_REGEX, message: 'は半角数字のみ入力してください' }
     validates :token
   end
-  validates :ken_id, numericality: { other_than: 1, message: 'Select' }
+  validates :ken_id, numericality: { other_than: 1, message: 'を選択してください' }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
