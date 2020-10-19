@@ -3,7 +3,7 @@ FactoryBot.define do
     title { 'テスト' }
     description { 'テスト' }
     after(:build) do |item|
-      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+      item.images.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
     price { 500 }
     category_id { 2 }

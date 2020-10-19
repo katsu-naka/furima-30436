@@ -2,7 +2,7 @@ ja:
   activerecord:
     attributes:
       item:
-        image: 画像
+        images: 画像
         title: 商品名
         description: 商品説明
         price: 金額

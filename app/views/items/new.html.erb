@@ -19,11 +19,10 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
-        <div id="image-list"></div>
+        <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
+        <div id="image-list"></div> 
       </div>
     </div>
-    <%# /出品画像 %>
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
@@ -39,8 +38,6 @@
         <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
-
     <%# 商品の詳細 %>
     <div class="items-detail">
       <div class="weight-bold-text">商品の詳細</div>
@@ -57,8 +54,6 @@
         <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
       </div>
     </div>
-    <%# /商品の詳細 %>
-
     <%# 配送について %>
     <div class="items-detail">
       <div class="weight-bold-text question-text">
@@ -83,8 +78,6 @@
         <%= f.collection_select(:shipping_day_id, ShippingDay.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
-    <%# /配送について %>
-
     <%# 販売価格 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
@@ -114,8 +107,6 @@
         </span>
       </div>
     </div>
-    <%# /販売価格 %>
-
     <%# 注意書き %>
     <div class="caution">
       <p class="sentence">
@@ -134,13 +125,12 @@
         に同意したことになります。
       </p>
     </div>
-    <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
+    
   </div>
   <% end %>
 
