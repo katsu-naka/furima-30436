@@ -124,7 +124,6 @@
       <% @items.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
-
         <div class='item-img-content'>
           <%= image_tag item.images[0], class: "item-img" %>
           <% if item.order != nil %>
@@ -133,8 +132,6 @@
             </div> 
           <% end %>
         </div>
-
-
         <div class='item-info'>
           <h3 class='item-name'>
             <%= item.title %>
