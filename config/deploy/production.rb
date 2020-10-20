@@ -60,3 +60,7 @@
 #     # password: "please use keys"
 #   }
 server '54.178.5.191', user: 'ec2-user', roles: %w{app db web}
+
+ActionCable.server.config.disable_request_forgery_protection = true
+config.action_cable.url = 'ws://54.178.5.191/cable'
+config.action_cable.allowed_request_origins = [ 'http://54.178.5.191' ] 
