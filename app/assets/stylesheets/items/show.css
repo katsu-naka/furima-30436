@@ -1,4 +1,7 @@
 /* 商品の概要 */
+*:focus {
+outline: none;
+}
 
 .item-show {
   background-color: #f8f8f8;
@@ -181,6 +184,17 @@
 
 .comment-flag-icon {
   margin: 10px 5px 0 0;
+}
+
+.message-area{
+  background-color: gray;
+}
+
+.message-text{
+  background-color: #3CCACE;
+  padding: 10px;
+  color: #333;
+  width: 300px;
 }
 
 .links {
