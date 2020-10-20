@@ -33,4 +33,12 @@ class Item < ApplicationRecord
     validates :shipment_score_id
     validates :shipping_day_id
   end
+
+  def self.search(search)
+    if search != ""
+      Item.where('title LIKE(?)',"%#{search}%").or(Item.where('description LIKE(?)',"%#{search}%"))
+    else
+      Item.all
+    end
+  end
 end
