@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :orders
-  has_many :messages
+  has_many :messages,dependent: :destroy
 
   NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
   NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
