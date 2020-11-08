@@ -89,11 +89,9 @@
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
-      <%#button class="comment-btn">
-        <%# image_tag "comment.png",class:"comment-flag-icon" ,width:"20",height:"30"%>
         <%= f.submit  "メッセージを送る" , class:"comment-btn"  %>
-      <%#/button%>
     <% end %>
+
     <%#コメント表示%>
     <div id='messages' class='message-area'>
       <% @messages.reverse_each do |message| %>
@@ -104,6 +102,7 @@
       </div>
       <% end %>
     </div>
+
   </div>
 
   <div class="links">
