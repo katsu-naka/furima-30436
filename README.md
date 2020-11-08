@@ -73,6 +73,8 @@ belongs_to :order
 | Column | Type       | Options                       |
 | ------ | ---------- | ----------------------------- |
 | text   | text       | null false                    |
+| date   | string     | null false                    |
+| name   | string     | null false                    |
 | user   | references | null false, foreign_key: true |
 | item   | references | null false, foreign_key: true |
 
