@@ -13,9 +13,8 @@ consumer.subscriptions.create("MessageChannel", {
     // console.log("111")
     const html = `
     <div class="message-text">
-      <p>${data.content.text}</p>
-      <br>
-      <p>${data.content.created_at}</p>
+      <p>${data.content.text}</p><br>
+      <p>${data.content.name}：${data.content.date}</p>
     </div>
     `;
 

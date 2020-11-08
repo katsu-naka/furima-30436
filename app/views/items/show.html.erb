@@ -80,10 +80,11 @@
     </div>
   </div>
 
-
   <div class="comment-box">
     <%= form_with(model:[ @item, @message ],local: true) do |f| %> 
       <%= f.text_area :text,placeholder: '出品者への質問等を入力してください' ,class: "comment-text", id:"comment-text" %>
+      <%= f.hidden_field :date, :value => DateTime.now.strftime("%Y年%m月%d日 %H:%M:%S")  %>
+      <%= f.hidden_field :name, :value => current_user.nickname %>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
@@ -91,20 +92,16 @@
       </p>
         <%= f.submit  "メッセージを送る" , class:"comment-btn"  %>
     <% end %>
-
     <%#コメント表示%>
     <div id='messages' class='message-area'>
       <% @messages.reverse_each do |message| %>
       <div class="message-text">
-        <p><%=  message.text %></p>
-        <br>
-        <p><%= l message.created_at %></p>
+        <p><%=  message.text %></p><br>
+        <p><%= message.name %>：<%= message.date %></p>
       </div>
       <% end %>
     </div>
-
   </div>
-
   <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の商品
