@@ -199,6 +199,15 @@ outline: none;
   margin: 0 auto;
 }
 
+.gest-user-message{
+  margin: 50px auto;
+  font-size: 24px;
+  color: #3CCACE;
+  font-weight: bold;
+  background-color: #eee;
+  padding: 50px;
+}
+
 .links {
   display: flex;
   justify-content: space-between;
